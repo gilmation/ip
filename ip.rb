@@ -1,10 +1,15 @@
   # IP
+  require 'yaml'
   require 'sinatra/base'
 
   class Ip < Sinatra::Base
 
-    use Rack::Auth::Basic do |username, password|
-      username == 'admin' && password == 'secret'
+    use Rack::Auth::Basic, "Gilmation IP Area" do |username, password|
+      basic_config ||= YAML.load_file('./config/basic.yml')
+      admin = basic_config['user']
+      password = basic_config['password']
+      puts "User [#{admin}], Password [#{password}]"
+      username == admin && password == password
     end
 
     # Return the IP

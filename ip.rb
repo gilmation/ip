@@ -5,11 +5,10 @@
   class Ip < Sinatra::Base
 
     use Rack::Auth::Basic, "Gilmation IP Area" do |username, password|
-      basic_config ||= YAML.load_file('./config/basic.yml')
-      admin = basic_config['user']
-      password = basic_config['password']
-      puts "User [#{admin}], Password [#{password}]"
-      username == admin && password == password
+      @basic_config ||= YAML.load_file('./config/basic.yml')
+      @admin ||= @basic_config['user']
+      @pass ||= @basic_config['password']
+      username == @admin && password == @pass
     end
 
     # Return the IP

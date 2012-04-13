@@ -16,6 +16,8 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     rack (1.2.2)
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
@@ -26,4 +28,5 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
+  shotgun
   sinatra (>= 1.2.5)

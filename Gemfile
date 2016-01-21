@@ -12,5 +12,8 @@ gem "figaro"
 group :development, :test do
   gem "shotgun"
   gem "pry"
+  gem "minitest"
+  gem "rack-test"
+  gem "rake"
 end
 

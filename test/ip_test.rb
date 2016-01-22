@@ -10,13 +10,17 @@ class Ip_Test < MiniTest::Unit::TestCase
     Ip
   end
 
+  def bearer
+    @bearer ||= YAML.load_file( './config/auth.yml' )['bearer']
+  end
+
   def test_my_default
     get '/'
     assert_equal 'Hello World!', last_response.body
   end
 
-  def test_with_rack_env
-    get '/', {}, 'HTTP_USER_AGENT' => 'Songbird'
-    assert_equal "You're using Songbird!", last_response.body
+  def test_with_http_auth
+    get '/', {}, 'HTTP_AUTHORIZATION' => bearer
+    assert_equal "127.0.0.1", last_response.body
   end
 end

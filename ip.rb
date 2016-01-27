@@ -2,8 +2,13 @@
   require 'yaml'
   require 'sinatra/base'
   require 'pry'
+  # require 'figaro'
 
   class Ip < Sinatra::Base
+
+    # Figaro.application = Figaro::Application.new( { 'path' => File.join( './', 'config', 'application.yml' ),
+    #                                                 'environment' => 'development' } )
+    # Figaro.load
 
     # use Rack::Auth::Basic, "Gilmation IP Area" do |username, password|
     #   @basic_config ||= YAML.load_file('./config/basic.yml')
@@ -19,6 +24,10 @@
     helpers do
       def authenticate!
         @bearer ||= YAML.load_file( './config/auth.yml' )['bearer']
+        # @bearer ||= ENV['bearer']
+        puts "Bearer helper [#{@bearer}]"
+        puts "Bearer request.env [#{request.env}]"
+        puts "Bearer http [#{request.env['HTTP_AUTHORIZATION']}]"
         request.env['HTTP_AUTHORIZATION'] && request.env['HTTP_AUTHORIZATION'] =~ /#{@bearer}$/
       end
     end

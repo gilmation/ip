@@ -12,15 +12,20 @@ class Ip_Test < MiniTest::Unit::TestCase
 
   def bearer
     @bearer ||= YAML.load_file( './config/auth.yml' )['bearer']
+    # @bearer ||= ENV['bearer']
+    puts "Bearer [#{@bearer}]"
+    @bearer
   end
 
   def test_my_default
     get '/'
-    assert_equal 'Hello World!', last_response.body
+    assert_equal 'Access Denied', last_response.body
+    assert_equal 401, last_response.status
   end
 
   def test_with_http_auth
     get '/', {}, 'HTTP_AUTHORIZATION' => bearer
     assert_equal "127.0.0.1", last_response.body
+    assert_equal 200, last_response.status
   end
 end

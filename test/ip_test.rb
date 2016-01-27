@@ -11,9 +11,7 @@ class Ip_Test < MiniTest::Unit::TestCase
   end
 
   def bearer
-    @bearer ||= YAML.load_file( './config/auth.yml' )['bearer']
-    # @bearer ||= ENV['bearer']
-    puts "Bearer [#{@bearer}]"
+    @bearer ||= ENV['bearer']
     @bearer
   end
 

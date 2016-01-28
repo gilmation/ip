@@ -1,11 +1,25 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     coderay (1.1.0)
     figaro (1.1.1)
       thor (~> 0.14)
+    highline (1.7.8)
     method_source (0.8.2)
     minitest (4.7.5)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.0.2)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -32,6 +46,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano (= 2.15.5)
   figaro
   minitest
   pry

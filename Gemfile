@@ -6,14 +6,15 @@ gem 'sinatra'
 gem 'rails_12factor', group: :production
 
 # ENV Configuration
-gem "figaro"
+gem 'figaro'
 
 # Development
 group :development, :test do
-  gem "shotgun"
-  gem "pry"
-  gem "minitest"
-  gem "rack-test"
-  gem "rake"
+  gem 'shotgun'
+  gem 'pry'
+  gem 'minitest'
+  gem 'rack-test'
+  gem 'rake'
+  gem 'capistrano', '2.15.5'
 end
 

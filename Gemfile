@@ -18,3 +18,4 @@ group :development, :test do
   gem 'capistrano', '2.15.5'
 end
 
+ruby "2.1.2"

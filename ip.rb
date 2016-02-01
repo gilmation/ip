@@ -6,8 +6,11 @@
 
   class Ip < Sinatra::Base
 
-    Figaro.application = Figaro::Application.new( { 'path' => File.join( './', 'config', 'application.yml' ) } )
-    Figaro.load
+    # Unless we have externally defined ENV variables i.e. Heroku
+    unless ENV['bearer']
+      Figaro.application = Figaro::Application.new( { 'path' => File.join( './', 'config', 'application.yml' ) } )
+      Figaro.load
+    end
 
     before do
       authenticate! || halt( 401, 'Access Denied' )

@@ -1,7 +1,6 @@
   # IP
   require 'yaml'
   require 'sinatra/base'
-  require 'pry'
   require 'figaro'
 
   class Ip < Sinatra::Base

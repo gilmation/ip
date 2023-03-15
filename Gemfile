@@ -15,7 +15,8 @@ group :development, :test do
   gem 'minitest'
   gem 'rack-test'
   gem 'rake'
-  gem 'capistrano', '2.15.5'
+  gem 'capistrano', '3.10'
+  gem 'puma'
 end
 
-ruby "2.1.2"
+ruby "3.1.3"

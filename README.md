@@ -1,4 +1,4 @@
-# Sinatra app returns IP of incoming HTTP request (uses basic auth)
+## A Sinatra App - Returns IP of incoming HTTP request (uses basic auth)
 
 To run this locally you'll need to add a config/application.yml file,
 with the following keys, which Figaro will then load up:

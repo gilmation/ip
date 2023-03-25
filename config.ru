@@ -1,2 +1,5 @@
+require 'bundler'
+Bundler.require
+
 require './ip'
-run Sinatra::Application
+run Ip

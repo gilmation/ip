@@ -1,17 +1,11 @@
 # IP
 require "yaml"
 require "sinatra/base"
-require "figaro"
+require_relative "fig"
 
 class Ip < Sinatra::Base
   # Unless we have externally defined ENV variables i.e. Heroku
-  unless ENV["bearer"]
-    Figaro.application =
-      Figaro::Application.new(
-        { "path" => File.join("./", "config", "application.yml") }
-      )
-    Figaro.load
-  end
+  Fig.init unless ENV["bearer"]
 
   before { authenticate! || halt(401, "Access Denied") }
 

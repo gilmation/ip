@@ -12,10 +12,10 @@ basic_token:
 bundle exec rackup
 ```
 ### Terminal 2
-Run some / all of these to test that it's all working
+Run some / all of these to test that it's all working. Check out the ip.rb file to see the other end point.
 ```
 rake test
 ruby ./ip_client.rb
-curl -H "Authorization: Basic $bearer" 127.0.0.1:9292 or $target_fqdm
-curl -u admin:$basic_token 127.0.0.1:9292 or $target_fqdm
+curl -H "Authorization: Basic $bearer" 127.0.0.1:9292/who-am-i or $target_fqdm/who-am-i
+curl -u admin:$basic_token 127.0.0.1:9292/who-am-i or $target_fqdm/who-am-i
 ```

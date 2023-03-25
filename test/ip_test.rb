@@ -15,14 +15,20 @@ class Ip_Test < MiniTest::Unit::TestCase
     @bearer
   end
 
-  def test_my_default
+  def test_root
     get "/"
     assert_equal "Access Denied", last_response.body
     assert_equal 401, last_response.status
   end
 
+  def test_no_auth
+    get "/who-am-i"
+    assert_equal "Access Denied", last_response.body
+    assert_equal 401, last_response.status
+  end
+
   def test_with_http_auth
-    get "/", {}, "HTTP_AUTHORIZATION" => "Basic #{bearer}"
+    get "/who-am-i", {}, "HTTP_AUTHORIZATION" => "Basic #{bearer}"
     assert_equal "127.0.0.1", last_response.body
     assert_equal 200, last_response.status
   end

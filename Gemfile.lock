@@ -27,7 +27,7 @@ GEM
       method_source (~> 1.0)
     puma (6.1.1)
       nio4r (~> 2.0)
-    rack (2.2.6.3)
+    rack (2.2.6.4)
     rack-protection (3.0.5)
       rack
     rack-test (2.0.2)
@@ -61,6 +61,7 @@ DEPENDENCIES
   minitest
   pry
   puma
+  rack (>= 2.2.6.4)
   rack-test
   rails_12factor
   rake
